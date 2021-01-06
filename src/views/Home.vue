@@ -1,18 +1,20 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="content">
+    <h3 class="title">En Son Tweetler</h3>
+    <!-- Tweet At Başlangıcı -->
+    <send-tweet-container />
+    <!-- Tweet At Bitişi -->
+    <!-- Tweetler Başlangıcı -->
+    <tweet-container v-for="i in 10" :key="i" />
+    <!-- Tweetler Bitişi -->
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import sendTweetContainer from "@/components/Home/sendTweetContainer";
 export default {
-  name: 'Home',
   components: {
-    HelloWorld
-  }
-}
+    sendTweetContainer,
+  },
+};
 </script>

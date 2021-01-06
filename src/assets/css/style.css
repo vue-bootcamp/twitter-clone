@@ -1,0 +1,593 @@
+body {
+  background-color: #15202b;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  display: flex;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+.wrapper {
+  width: 1265px;
+  margin: 0 auto;
+  height: 100%;
+  position: relative;
+}
+
+.left-side {
+  width: 275px;
+  padding-left: 10px;
+  padding-right: 10px;
+  float: left;
+  position: sticky;
+  top: 0;
+}
+
+.content {
+  width: 600px;
+  border-left: 1px solid #38444d;
+  border-right: 1px solid #38444d;
+  float: left;
+}
+
+.right-side {
+  width: 350px;
+  margin-left: 18px;
+  float: left;
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  padding: 15px;
+}
+
+.logo i {
+  font-size: 35px;
+  color: #fff;
+}
+
+.trend-list,
+.who-to-follow {
+  background-color: #192734;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  width: 350px;
+  float: left;
+}
+
+.trend-list h3,
+.who-to-follow h3 {
+  border-bottom: 1px solid #38444d;
+  padding: 10px 15px;
+  margin: 0;
+  color: #fff;
+}
+
+ul.topic-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.topic-list li {
+  margin: 0;
+  border-bottom: 1px solid #38444d;
+}
+
+ul.topic-list li a {
+  padding: 10px 15px;
+  display: block;
+}
+
+ul.topic-list li:hover,
+ul.follow-list li:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+ul.topic-list li:last-child,
+ul.follow-list li:last-child {
+  border-bottom: 0;
+}
+
+ul.topic-list li:last-child a,
+ul.follow-list li:last-child a {
+  padding: 15px;
+  font-size: 15px;
+  color: #1da1f2;
+  display: block;
+}
+
+ul.topic-list li a span {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  color: #8899a6;
+  margin-top: 7px;
+}
+
+ul.topic-list li a span:first-child {
+  margin-top: 0;
+}
+
+ul.topic-list li a span:nth-child(2) {
+  font-size: 15px;
+  color: #fff;
+  font-weight: bold;
+}
+
+ul.navigation {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.navigation li {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+ul.navigation li a {
+  font-size: 19px;
+  color: #fff;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 100px;
+}
+
+ul.navigation li a:hover {
+  background-color: rgba(29, 161, 242, 0.1);
+  padding-right: 25px;
+  color: #1da1f2;
+}
+
+ul.navigation li a i {
+  width: 30px;
+  margin-right: 20px;
+  font-size: 26px;
+  text-align: center;
+}
+
+.title {
+  color: #fff;
+  font-weight: 800;
+  font-size: 19px;
+  padding: 15px;
+  border-bottom: 1px solid #38444d;
+  margin: 0;
+}
+
+.tweet-send {
+  padding: 15px;
+  float: left;
+  border-bottom: 10px solid #38444d;
+  width: 100%;
+}
+
+.profile-photo {
+  width: 49px;
+  float: left;
+}
+
+.profile-photo img {
+  width: 49px;
+  border-radius: 49px;
+}
+
+.tweet-input {
+  width: 515px;
+  float: left;
+  padding-left: 15px;
+}
+
+.tweet-input textarea {
+  background-color: #15202b;
+  border: 0;
+  border-bottom: 1px solid #38444d;
+  outline: none !important;
+  display: block;
+  width: 100%;
+  height: 75px;
+  color: #fff;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  resize: none;
+}
+
+.tweet-send-button button {
+  float: right;
+  background-color: #1da1f2;
+  color: #fff;
+  border: 0;
+  border-radius: 100px;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+
+.tweet {
+  padding: 15px 15px 5px 15px;
+  float: left;
+  border-bottom: 1px solid #38444d;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tweet-content {
+  width: 519px;
+  float: left;
+  padding-left: 15px;
+}
+
+.tweet-info {
+  width: 494px;
+  float: left;
+}
+
+.tweet-info span {
+  float: left;
+  color: #8899a6;
+  margin-right: 5px;
+  font-size: 15px;
+}
+
+.tweet-info span:first-child {
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.tweet-info span:last-child:before {
+  content: "•";
+  color: #8899a6;
+  margin: 0 5px;
+  line-height: 1.1rem;
+}
+
+.tweet-detail {
+  color: #fff;
+  font-size: 15px;
+  margin-top: 5px;
+  float: left;
+}
+
+.tweet-detail span {
+  font-weight: normal;
+}
+
+.tweet-detail img {
+  width: 100%;
+  border-radius: 15px;
+  border: 1px solid #38444d;
+  margin-top: 10px;
+}
+
+.tweet-button {
+  background-color: #1da1f2;
+  color: #fff;
+  border: 0;
+  border-radius: 100px;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 15px 20px;
+  margin-top: 20px;
+  /* width: 90%; */
+  outline: none;
+}
+
+.w-90 {
+  width: 90%;
+}
+.w-100 {
+  width: 100%;
+}
+
+.search {
+  position: relative;
+  margin: 10px 0;
+}
+
+.search button {
+  background: none;
+  border: none;
+  color: #8899a6;
+  position: absolute;
+}
+
+.search button i {
+  font-size: 20px;
+  margin-top: 8px;
+  margin-left: 10px;
+}
+
+.search-input {
+  background-color: #192734;
+  border: 0;
+  border-radius: 100px;
+  height: 38px;
+  padding: 0;
+  padding-left: 50px;
+  width: 100%;
+  color: #fff;
+  outline: none;
+}
+
+ul.follow-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.follow-list li {
+  margin: 0;
+  border-bottom: 1px solid #38444d;
+  float: left;
+  padding: 10px 15px;
+}
+
+ul.follow-list li:last-child {
+  padding: 0;
+}
+
+.follow {
+  display: block;
+  float: left;
+}
+
+.profile-name {
+  width: 166px;
+  float: left;
+  margin-left: 15px;
+  padding-top: 5px;
+}
+
+.profile-name p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #8899a6;
+}
+
+.profile-name p:first-child {
+  color: #fff;
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 3px;
+}
+
+.follow-button {
+  border: 1px solid #1da1f2;
+  background-color: rgba(29, 161, 242, 0);
+  float: left;
+  color: #1da1f2;
+  border-radius: 50px;
+  padding: 8px 15px;
+  width: 90px;
+  margin-top: 9px;
+  outline: none;
+}
+
+.follow-button:hover {
+  background-color: rgba(29, 161, 242, 0.1);
+}
+
+.profile-title-content {
+  border-bottom: 1px solid #38444d;
+  float: left;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.back {
+  width: 70px;
+  height: 30px;
+  float: left;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.back i {
+  font-size: 24px;
+  color: #4da1f2;
+}
+
+.text {
+  width: 480px;
+  float: left;
+}
+
+.text h3 {
+  margin: 0;
+  font-weight: bold;
+  color: #fff;
+}
+
+.text p {
+  margin: 0;
+  color: #8899a6;
+  margin-top: 5px;
+}
+
+.profile-info {
+  float: left;
+  width: 100%;
+  padding: 15px;
+}
+
+.profile-line {
+  width: 100%;
+  float: left;
+  height: 65px;
+}
+
+.profile-picture {
+  position: absolute;
+  margin-top: -80px;
+}
+
+.profile-picture img {
+  border-radius: 999px;
+  overflow: hidden;
+  width: 134px;
+}
+
+.follow-me {
+  border: 1px solid #1da1f2;
+  background-color: rgba(29, 161, 242, 0);
+  float: right;
+  color: #1da1f2;
+  border-radius: 50px;
+  padding: 11px 20px;
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.follow-me:hover {
+  background-color: rgba(29, 161, 242, 0.1);
+}
+
+.line {
+  float: left;
+  width: 100%;
+}
+
+.line span {
+  font-size: 15px;
+  color: #8899a6;
+  float: left;
+}
+
+.line span i {
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.mr5 {
+  margin-right: 5px;
+}
+
+.mr15 {
+  margin-right: 15px;
+}
+
+.mr30 {
+  margin-right: 30px;
+}
+
+.fwbold {
+  font-weight: bold;
+}
+
+.text-white {
+  color: #fff !important;
+}
+
+.text-gray {
+  color: #8899a6;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+.mt15 {
+  margin-top: 15px;
+}
+
+.mt5 {
+  margin-top: 5px;
+}
+
+.w100 {
+  width: 100%;
+  float: left;
+}
+
+.mb0 {
+  margin-bottom: 0;
+}
+
+ul.profile-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  border-bottom: 1px solid #38444d;
+  float: left;
+}
+
+ul.profile-menu li {
+  margin: 0;
+  float: left;
+  width: 50%;
+  text-align: center;
+  border-bottom: 2px solid transparent;
+}
+
+ul.profile-menu li:hover,
+ul.profile-menu li.active {
+  border-bottom: 2px solid #1da1f2;
+}
+
+ul.profile-menu li.active a {
+  color: #1da1f2;
+}
+
+ul.profile-menu li a {
+  font-weight: bold;
+  font-size: 18px;
+  color: #8899a6;
+  display: block;
+  padding: 15px 0;
+}
+
+ul.profile-menu li a:hover {
+  color: #1da1f2;
+}
+
+ul.tweet-action {
+  margin: 7px 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.tweet-action li {
+  margin: 0;
+  float: left;
+  width: 20%;
+}
+
+ul.tweet-action li a {
+  display: inline-block;
+  color: #8899a6;
+  font-size: 18px;
+  padding: 9px;
+  border-radius: 50px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+
+ul.tweet-action li a:hover {
+  background-color: rgba(29, 161, 242, 0.1);
+  color: #1da1f2;
+}
+
+#app {
+  width: 100%;
+}

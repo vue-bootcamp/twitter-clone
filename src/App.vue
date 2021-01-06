@@ -1,30 +1,30 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="wrapper">
+    <app-left-sidebar />
+    <transition name="fade">
+      <router-view></router-view>
+    </transition>
+    <app-right-sidebar />
   </div>
-  <router-view/>
 </template>
+<script>
+import appLeftSidebar from "@/components/shared/Sidebars/appLeftSidebar";
+import appRightSidebar from "@/components/shared/Sidebars/appRightSidebar";
+export default {
+  components: {
+    appLeftSidebar,
+    appRightSidebar,
+  },
+};
+</script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.fade-leave-active,
+.fade-enter-active {
+  transition: opacity 0.5s ease;
 }
 </style>

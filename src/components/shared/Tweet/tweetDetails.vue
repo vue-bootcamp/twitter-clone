@@ -1,12 +1,23 @@
 <template>
   <div class="tweet-detail">
-    nerede olduğumu unutturan, kaç saat geçtiğini fark ettirmeyen ve bu konuya
-    nereden geldik dedirten sohbetleri çok seviyorum. insan herkesle konuşur ama
-    herkesle gerçek sohbetler edemez.
-    <img
-      src="https://pbs.twimg.com/media/EixDkp_UcAcAn4v?format=jpg&name=large"
-      alt=""
-      width="100%"
-    />
+    <div v-html="tweet.tweet"></div>
+    <img v-if="hasImageMedia" :src="tweet.media" alt="" width="100%" />
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    tweet: {
+      required: true,
+      type: Object,
+    },
+  },
+
+  computed: {
+    hasImageMedia() {
+      return this.tweet.hasOwnProperty("media") && this.tweet.media !== null;
+    },
+  },
+};
+</script>

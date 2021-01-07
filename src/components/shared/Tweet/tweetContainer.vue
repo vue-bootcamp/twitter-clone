@@ -1,10 +1,10 @@
 <template>
   <div class="tweet">
-    <tweet-user-image />
+    <tweet-user-image :profile_picture="tweet.user.profile_picture" />
     <div class="tweet-content">
-      <tweet-user-info />
-      <tweet-details />
-      <tweet-actions />
+      <tweet-user-info :user="tweet.user" :created_at="tweet.created_at" />
+      <tweet-details :tweet="tweet" />
+      <tweet-actions :tweet="tweet" />
     </div>
   </div>
 </template>
@@ -20,6 +20,16 @@ export default {
     tweetUserImage,
     tweetUserInfo,
     tweetDetails,
+  },
+  props: {
+    tweet: {
+      required: true,
+      type: Object,
+    },
+  },
+
+  created() {
+    // console.log("this.tweet", this.tweet);
   },
 };
 </script>

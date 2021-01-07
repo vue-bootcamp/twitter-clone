@@ -570,6 +570,8 @@ ul.tweet-action li {
   margin: 0;
   float: left;
   width: 20%;
+  color: #8899a6;
+  cursor: default;
 }
 
 ul.tweet-action li a {
@@ -583,11 +585,78 @@ ul.tweet-action li a {
   text-align: center;
 }
 
-ul.tweet-action li a:hover {
+ul.tweet-action svg {
+  fill: #8899a6;
+}
+
+/* #17BF63 // yeşil
+#E0245E // kirmizi */
+
+ul.tweet-action li:first-child span.action-container:hover svg,
+ul.tweet-action li:first-child span.action-container:hover small,
+ul.tweet-action li:last-child span.action-container:hover svg,
+ul.tweet-action li:last-child span.action-container:hover small {
+  fill: #1da1f2;
+  color: #1da1f2;
+  background-color: rgba(29, 161, 242, 0.1);
+}
+
+ul.tweet-action li:nth-child(2) span.action-container:hover svg,
+ul.tweet-action li:nth-child(2) span.action-container:hover small {
+  fill: #17bf63;
+  color: #17bf63;
+}
+
+ul.tweet-action li:nth-child(3) span.action-container:hover svg,
+ul.tweet-action li:nth-child(3) span.action-container:hover small {
+  fill: #e0245e;
+  color: #e0245e;
+}
+
+ul.tweet-action li:first-child span.action-container:hover a,
+ul.tweet-action li:last-child span.action-container:hover a {
   background-color: rgba(29, 161, 242, 0.1);
   color: #1da1f2;
 }
 
+ul.tweet-action li:nth-child(2) span.action-container:hover a {
+  background-color: rgba(23, 191, 99, 0.1);
+  color: #17bf63;
+}
+ul.tweet-action li:nth-child(3) span.action-container:hover a {
+  background-color: rgba(224, 36, 94, 0.1);
+  color: #e0245e;
+}
+
 #app {
   width: 100%;
+}
+
+.hashTag {
+  color: #1da1f2;
+  cursor: default;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-start {
+  justify-content: flex-start;
+}
+.justify-content-center {
+  justify-content: flex-center;
+}
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.align-items-start {
+  align-items: start;
+}
+.align-items-center {
+  align-items: center;
+}
+.align-items-end {
+  align-items: end;
 }

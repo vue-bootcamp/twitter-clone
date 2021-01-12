@@ -1,23 +1,16 @@
 <template>
+  <!-- <pre style="color : #fff">
+  {{ $store.state.user }}
+  {{ $store.state.tokens }}
+  </pre> -->
   <div class="wrapper">
-    <app-left-sidebar />
+    <router-view name="appLeftSidebar"></router-view>
     <transition name="fade">
       <router-view></router-view>
     </transition>
-    <app-right-sidebar />
+    <router-view name="appRightSidebar"></router-view>
   </div>
 </template>
-<script>
-import appLeftSidebar from "@/components/shared/Sidebars/appLeftSidebar";
-import appRightSidebar from "@/components/shared/Sidebars/appRightSidebar";
-export default {
-  components: {
-    appLeftSidebar,
-    appRightSidebar,
-  },
-};
-</script>
-
 <style>
 .fade-enter-from,
 .fade-leave-to {

@@ -67,21 +67,38 @@
           placeholder="Şifre"
         />
         <button class="w-100 mb-20" @click="login">Giriş Yap</button>
-        <a href="#" class="twitter-link">Twitter'a kaydol</a>
+        <a href="#" class="twitter-link" @click.prevent="registerModal = true"
+          >Twitter'a kaydol</a
+        >
       </div>
     </div>
+
+    <teleport to="#modalContent">
+      <transition name="fade">
+        <app-register-modal
+          v-if="registerModal"
+          @hide-event="registerModal = false"
+        />
+      </transition>
+    </teleport>
   </div>
 </template>
 
 <script>
 import { appAuthAxios } from "@/utils/appAxioses";
+import appRegisterModal from "@/components/Login/appRegisterModal";
+
 export default {
+  components: {
+    appRegisterModal,
+  },
   data() {
     return {
       userInfo: {
         username: "felomelokelo",
         password: "123456789",
       },
+      registerModal: false,
     };
   },
   methods: {
@@ -91,3 +108,14 @@ export default {
   },
 };
 </script>
+
+<style>
+.fade-leave-to,
+.fade-enter-from {
+  opacity: 0;
+}
+.fade-leave-active,
+.fade-enter-active {
+  transition: opacity 0.5s ease;
+}
+</style>

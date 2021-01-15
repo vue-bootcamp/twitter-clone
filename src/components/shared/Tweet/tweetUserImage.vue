@@ -8,10 +8,9 @@
 export default {
   props: {
     profile_picture: {
-      type: String,
+      type: [String, null],
       required: false,
-      default:
-        "https://pbs.twimg.com/profile_images/1153131318454169601/b3bdzrDM_200x200.jpg",
+      default: "/default-user.png",
     },
   },
 };

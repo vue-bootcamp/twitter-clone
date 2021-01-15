@@ -15,12 +15,17 @@ export default {
       state.user = pUser;
     },
     logout(state) {
-      state.user = null;
-      state.accessToken = null;
-      // localStorage.removeItem("user");
-      // localStorage.removeItem("accessToken");
-      localStorage.clear();
-      router.push({ name: "Login" });
+      appAuthAxios
+        .post("/logout", { token: localStorage?.accessToken })
+        .then((logout_response) => {
+          console.log("logout_response", logout_response);
+          state.user = null;
+          state.accessToken = null;
+          // localStorage.removeItem("user");
+          // localStorage.removeItem("accessToken");
+          localStorage.clear();
+          router.push({ name: "Login" });
+        });
     },
   },
   actions: {
@@ -32,7 +37,9 @@ export default {
         localStorage.accessToken = login_response?.data?.tokens?.accessToken;
         localStorage.user = JSON.stringify(login_response?.data?.user);
         // Routing
+        // setTimeout(() => {
         router.push({ name: "Home" });
+        // }, 300);
       });
     },
   },

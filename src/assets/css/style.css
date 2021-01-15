@@ -1022,7 +1022,7 @@ input[type="checkbox"]:checked + label {
   top: 0;
   left: 0;
   background-color: rgba(91, 112, 131, 0.4);
-  z-index: 0;
+  z-index: 99;
 }
 
 .register_modal .content {
@@ -1036,7 +1036,7 @@ input[type="checkbox"]:checked + label {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  z-index: 1;
+  z-index: 100;
   text-align: center;
 }
 
@@ -1494,5 +1494,10 @@ input[type="checkbox"]:checked + label {
 
 .profile-edit-modal .profile-edit .profile-edit-form {
   padding: 0 15px;
+}
+
+#modalContent {
+  position: relative;
+  z-index: 9999;
 }
 /*# sourceMappingURL=style.css.map */

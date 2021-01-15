@@ -1,6 +1,6 @@
 <template>
   <div class="tweet">
-    <tweet-user-image :profile_picture="tweet.user.profile_picture" />
+    <tweet-user-image :profile_picture="profileImage" />
     <div class="tweet-content">
       <tweet-user-info :user="tweet.user" :created_at="tweet.created_at" />
       <tweet-details :tweet="tweet" />
@@ -30,6 +30,11 @@ export default {
 
   created() {
     // console.log("this.tweet", this.tweet);
+  },
+  computed: {
+    profileImage() {
+      return this.tweet?.user?.profile_picture || "/default-user.png";
+    },
   },
 };
 </script>

@@ -7,6 +7,7 @@
     <!-- Tweetler Başlangıcı -->
     <tweet-container v-for="tweet in tweets" :key="tweet._id" :tweet="tweet" />
     <!-- Tweetler Bitişi -->
+    <!-- <teleport to="#alert"></teleport> -->
   </div>
 </template>
 

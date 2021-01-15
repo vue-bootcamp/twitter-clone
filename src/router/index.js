@@ -40,29 +40,27 @@ router.beforeEach((to, from, next) => {
   // Giriş yapmış mı?
   let user,
     accessToken = null;
+  let isAuthenticated = false;
 
-  if (localStorage?.user) user = JSON.parse(localStorage.user);
-  if (localStorage?.accessToken) accessToken = localStorage.accessToken;
-  // Routing yapiyor olabilir. Store kontrol et..
-  if (!store.getters["user/isAuthenticated"]) {
-    // Sayfayı yenilemiş olabilir. LocalStorage Kontrol et..
-    if (!user && !accessToken) {
-      // Login Harici bir sayfaya girmeye calisiyorsa..
-      if (to.name !== "Login") {
-        next({ name: "Login" });
-      } else {
-        next();
-      }
-    } else {
-      store.commit("user/setAccessToken", accessToken);
-      store.commit("user/setUser", user);
-      if (to.name !== "Login") next();
-      else next({ name: "Home" });
-    }
-  } else {
-    if (to.name !== "Login") next();
-    else next({ name: "Home" });
+  if (localStorage?.user) user = JSON.parse(localStorage?.user);
+  if (localStorage?.accessToken) accessToken = localStorage?.accessToken;
+
+  // Store populate
+  if (user && accessToken && !store.getters["user/isAuthenticated"]) {
+    store.commit("user/setAccessToken", accessToken);
+    store.commit("user/setUser", user);
   }
+
+  isAuthenticated = store.getters["user/isAuthenticated"];
+
+  // Auth değilse ve Login sayfasına gidiyorsa gitmesine izin var..
+  if (!isAuthenticated && to.name === "Login") next();
+  // Auth değilse ve Login sayfası haricinde bir sayfaya gidiyorsa gitmesine izin var..
+  if (!isAuthenticated && to.name !== "Login") next({ name: "Login" });
+  // Auth olmuşsa ve Login sayfası haricinde bir yere gitmek istiyorsa.. izin ver..
+  if (isAuthenticated && to.name !== "Login") next();
+  // Auth olmuşsa ve Login sayfasına gitmek istiyorsa izin VERME!!!
+  if (isAuthenticated && to.name === "Login") next({ name: "Home" });
 });
 
 export default router;

@@ -1,10 +1,7 @@
 <template>
   <div class="tweet-send">
     <div class="profile-photo">
-      <img
-        src="https://pbs.twimg.com/profile_images/1153131318454169601/b3bdzrDM_200x200.jpg"
-        alt=""
-      />
+      <img :src="profilePicture" alt="" />
     </div>
     <div class="tweet-input">
       <textarea placeholder="Neler Oluyor?" v-model="tweet"></textarea>
@@ -16,6 +13,7 @@
 </template>
 <script>
 import { appAuthAxios } from "@/utils/appAxioses";
+import { mapGetters } from "vuex";
 export default {
   emits: ["new-tweet-event"],
   data() {
@@ -33,6 +31,14 @@ export default {
           this.tweet = null;
         })
         .catch((e) => console.log(e));
+    },
+  },
+  computed: {
+    ...mapGetters({
+      currentUser: "user/getCurrentUser",
+    }),
+    profilePicture() {
+      return this?.currentUser?.profile_picture || "/default-user.png";
     },
   },
 };

@@ -50,18 +50,15 @@
       </ul>
       <button class="tweet-button w-90">Tweetle</button>
     </div>
-    <div class="user-info">
+    <div v-if="currentUser" class="user-info">
       <a href="#" @click.prevent="logout">
         <div class="user d-flex justify-content-start align-items-center">
           <div class="profile-photo">
-            <img
-              src="https://pbs.twimg.com/profile_images/1153131318454169601/b3bdzrDM_200x200.jpg"
-              alt=""
-            />
+            <img :src="profilePicture" alt="" />
           </div>
           <div class="profile-name">
-            <p>Gökhan Kandemir</p>
-            <p>@gkandemir</p>
+            <p>{{ currentUser.full_name }}</p>
+            <p>@{{ currentUser.username }}</p>
           </div>
           <svg
             width="24"
@@ -81,7 +78,7 @@
   </div>
 </template>
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations, mapGetters } from "vuex";
 export default {
   methods: {
     // logout(){
@@ -90,6 +87,14 @@ export default {
     ...mapMutations({
       logout: "user/logout",
     }),
+  },
+  computed: {
+    ...mapGetters({
+      currentUser: "user/getCurrentUser",
+    }),
+    profilePicture() {
+      return this?.currentUser?.profile_picture || "/default-user.png";
+    },
   },
 };
 </script>

@@ -1,8 +1,7 @@
 <template>
-  <!-- <pre style="color : #fff">
-  {{ $store.state.user }}
-  {{ $store.state.tokens }}
-  </pre> -->
+  <!-- Teleport Content -->
+  <div id="modalContent"></div>
+  <!-- !Teleport Content -->
   <div class="wrapper">
     <router-view name="appLeftSidebar"></router-view>
     <transition name="fade">
